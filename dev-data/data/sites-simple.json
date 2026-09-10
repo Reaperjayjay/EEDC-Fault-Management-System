@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "site_code": "MP-NSK-001",
+    "site_name": "Nsukka Main Substation",
+    "address": "Enugu Road, Owere, Nsukka",
+    "location": {
+      "latitude": 6.8567,
+      "longitude": 7.3958
+    },
+    "site_type": "substation",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "site_code": "MP-NSK-002",
+    "site_name": "Odenigbo Transformer",
+    "address": "Odenigbo, Nsukka",
+    "location": {
+      "latitude": 6.8618,
+      "longitude": 7.3847
+    },
+    "site_type": "transformer",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "site_code": "MP-NSK-003",
+    "site_name": "University Road Feeder",
+    "address": "University Road, Nsukka",
+    "location": {
+      "latitude": 6.8649,
+      "longitude": 7.4081
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "site_code": "MP-NSK-004",
+    "site_name": "Nsukka Central Distribution Station",
+    "address": "Owere, Nsukka",
+    "location": {
+      "latitude": 6.8529,
+      "longitude": 7.3974
+    },
+    "site_type": "distribution",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "site_code": "MP-NSK-005",
+    "site_name": "Owere East Transformer",
+    "address": "Owere East, Nsukka",
+    "location": {
+      "latitude": 6.8497,
+      "longitude": 7.4046
+    },
+    "site_type": "transformer",
+    "status": "maintenance"
+  },
+  {
+    "id": 6,
+    "site_code": "MP-NSK-006",
+    "site_name": "Obukpa Road Feeder",
+    "address": "Obukpa Road, Nsukka",
+    "location": {
+      "latitude": 6.8669,
+      "longitude": 7.4109
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 7,
+    "site_code": "MP-NSK-007",
+    "site_name": "UNN Main Gate Transformer",
+    "address": "University of Nigeria Main Gate, Nsukka",
+    "location": {
+      "latitude": 6.8694,
+      "longitude": 7.3995
+    },
+    "site_type": "transformer",
+    "status": "active"
+  },
+  {
+    "id": 8,
+    "site_code": "MP-NSK-008",
+    "site_name": "UNN Campus Distribution Station",
+    "address": "University of Nigeria Campus, Nsukka",
+    "location": {
+      "latitude": 6.8651,
+      "longitude": 7.4084
+    },
+    "site_type": "distribution",
+    "status": "active"
+  },
+  {
+    "id": 9,
+    "site_code": "MP-NSK-009",
+    "site_name": "Nru Feeder",
+    "address": "Nru, Nsukka",
+    "location": {
+      "latitude": 6.8556,
+      "longitude": 7.4302
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 10,
+    "site_code": "MP-NSK-010",
+    "site_name": "Eha-Alumona Transformer",
+    "address": "Eha-Alumona, Nsukka",
+    "location": {
+      "latitude": 6.8397,
+      "longitude": 7.4308
+    },
+    "site_type": "transformer",
+    "status": "maintenance"
+  },
+  {
+    "id": 11,
+    "site_code": "MP-NSK-011",
+    "site_name": "Eha-Alumona Distribution Station",
+    "address": "Eha-Alumona, Nsukka",
+    "location": {
+      "latitude": 6.8463,
+      "longitude": 7.4251
+    },
+    "site_type": "distribution",
+    "status": "active"
+  },
+  {
+    "id": 12,
+    "site_code": "MP-NSK-012",
+    "site_name": "Lejja Feeder",
+    "address": "Lejja, Nsukka",
+    "location": {
+      "latitude": 6.7535,
+      "longitude": 7.3697
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 13,
+    "site_code": "MP-NSK-013",
+    "site_name": "Lejja Transformer",
+    "address": "Akaibite, Lejja, Nsukka",
+    "location": {
+      "latitude": 6.7602,
+      "longitude": 7.3754
+    },
+    "site_type": "transformer",
+    "status": "active"
+  },
+  {
+    "id": 14,
+    "site_code": "MP-NSK-014",
+    "site_name": "Obukpa Distribution Station",
+    "address": "Obukpa, Nsukka",
+    "location": {
+      "latitude": 6.9003,
+      "longitude": 7.3935
+    },
+    "site_type": "distribution",
+    "status": "active"
+  },
+  {
+    "id": 15,
+    "site_code": "MP-NSK-015",
+    "site_name": "Obukpa Transformer",
+    "address": "Obukpa Layout, Nsukka",
+    "location": {
+      "latitude": 6.8792,
+      "longitude": 7.3928
+    },
+    "site_type": "transformer",
+    "status": "maintenance"
+  },
+  {
+    "id": 16,
+    "site_code": "MP-NSK-016",
+    "site_name": "Opi Feeder",
+    "address": "Opi, Nsukka",
+    "location": {
+      "latitude": 6.7825,
+      "longitude": 7.3548
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 17,
+    "site_code": "MP-NSK-017",
+    "site_name": "Opi Distribution Station",
+    "address": "Opi-Uno, Nsukka",
+    "location": {
+      "latitude": 6.7894,
+      "longitude": 7.3617
+    },
+    "site_type": "distribution",
+    "status": "active"
+  },
+  {
+    "id": 18,
+    "site_code": "MP-NSK-018",
+    "site_name": "Obimo Transformer",
+    "address": "Obimo, Nsukka",
+    "location": {
+      "latitude": 6.8068,
+      "longitude": 7.3286
+    },
+    "site_type": "transformer",
+    "status": "inactive"
+  },
+  {
+    "id": 19,
+    "site_code": "MP-NSK-019",
+    "site_name": "Ede-Oballa Feeder",
+    "address": "Ede-Oballa, Nsukka",
+    "location": {
+      "latitude": 6.8187,
+      "longitude": 7.3794
+    },
+    "site_type": "feeder",
+    "status": "active"
+  },
+  {
+    "id": 20,
+    "site_code": "MP-NSK-020",
+    "site_name": "Ibagwa-Ani Distribution Station",
+    "address": "Ibagwa-Ani, Nsukka",
+    "location": {
+      "latitude": 6.8236,
+      "longitude": 7.4148
+    },
+    "site_type": "distribution",
+    "status": "active"
+  }
+]
