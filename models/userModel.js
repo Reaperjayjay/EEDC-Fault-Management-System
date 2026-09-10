@@ -48,9 +48,12 @@ class User {
     return rows;
   }
 
-  // Get one user
   static async findById(id) {
+    console.log('FINDING USER ID:', id);
+
     const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
+
+    console.log('USER ROWS:', rows);
 
     return rows[0];
   }
@@ -288,6 +291,29 @@ class User {
     await db.query('DELETE FROM users WHERE id = ?', [id]);
 
     return user;
+  }
+
+  /////vhange role for users
+  static async changeRole(id, role) {
+    const allowedRoles = ['admin', 'operator', 'engineer', 'user'];
+
+    if (!allowedRoles.includes(role)) {
+      throw new Error('Invalid role');
+    }
+
+    const sql = `
+    UPDATE users
+    SET role = ?
+    WHERE id = ?
+  `;
+
+    const [result] = await db.query(sql, [role, id]);
+
+    if (result.affectedRows === 0) {
+      return null;
+    }
+
+    return this.findById(id);
   }
 }
 

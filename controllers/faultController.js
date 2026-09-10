@@ -1,33 +1,11 @@
 const Fault = require('../models/faultsModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const factory = require('./handlerFactory');
 
-exports.getAllFaults = catchAsync(async (req, res) => {
-  const faults = await Fault.findAll();
+exports.getAllFaults = factory.getAll(Fault, 'faults');
 
-  res.status(200).json({
-    status: 'success',
-    results: faults.length,
-    data: {
-      faults,
-    },
-  });
-});
-
-exports.getFault = catchAsync(async (req, res, next) => {
-  const fault = await Fault.findById(req.params.id);
-
-  if (!fault) {
-    return next(new AppError('Fault not found', 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      fault,
-    },
-  });
-});
+exports.getFault = factory.getOne(Fault, 'fault');
 
 exports.createFault = catchAsync(async (req, res) => {
   const faultData = {
