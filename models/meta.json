@@ -1,0 +1,17 @@
+{
+  "version": "20261025-232242",
+  "features": [
+    "specialization",
+    "distance",
+    "distance_known",
+    "rating",
+    "rated",
+    "experience",
+    "jobs",
+    "severity"
+  ],
+  "source": "synthetic",
+  "rows": 1000,
+  "validation_rmse_points": 4.21,
+  "validation_spearman": 0.963
+}
