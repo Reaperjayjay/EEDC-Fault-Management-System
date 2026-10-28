@@ -435,6 +435,34 @@ class Site {
   static async deleteAll() {
     await db.query('DELETE FROM sites');
   }
+
+  // ============================================================
+  // SYNC SITE STATUS WITH ITS FAULTS
+  // maintenance while any fault is still open, active once all are closed.
+  // Sites marked 'inactive' are never touched.
+  // ============================================================
+  static async syncStatusWithFaults(siteId) {
+    if (!siteId) return null;
+
+    const [[{ openFaults }]] = await db.query(
+      `
+    SELECT COUNT(*) AS openFaults
+    FROM faults
+    WHERE site_id = ?
+      AND status NOT IN ('resolved', 'completed', 'closed', 'cancelled')
+    `,
+      [siteId],
+    );
+
+    const newStatus = openFaults > 0 ? 'maintenance' : 'active';
+
+    await db.query(
+      `UPDATE sites SET status = ? WHERE id = ? AND status <> 'inactive'`,
+      [newStatus, siteId],
+    );
+
+    return this.findById(siteId);
+  }
 }
 
 module.exports = Site;

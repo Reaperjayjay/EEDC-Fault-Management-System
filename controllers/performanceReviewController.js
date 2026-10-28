@@ -67,7 +67,7 @@ exports.createReview = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getAllReviews = catchAsync(async (req, res) => {
+exports.getAllReviews = catchAsync(async (req, res, next) => {
   const reviews = await PerformanceReview.findAll();
 
   res.status(200).json({
@@ -77,6 +77,7 @@ exports.getAllReviews = catchAsync(async (req, res) => {
       reviews,
     },
   });
+  return next(new AppError('Performance scores must be between 1 and 5', 400));
 });
 
 exports.getReview = catchAsync(async (req, res, next) => {
@@ -92,4 +93,32 @@ exports.getReview = catchAsync(async (req, res, next) => {
       review,
     },
   });
+  return next(new AppError('Performance scores must be between 1 and 5', 400));
+});
+
+exports.getMyReviews = catchAsync(async (req, res, next) => {
+  const reviews = await PerformanceReview.findByEngineerUserId(req.user.id);
+
+  res.status(200).json({
+    status: 'success',
+    results: reviews.length,
+    data: {
+      reviews,
+    },
+  });
+  return next(new AppError('Performance scores must be between 1 and 5', 400));
+});
+
+exports.getMyPerformanceSummary = catchAsync(async (req, res, next) => {
+  const summary = await PerformanceReview.getPerformanceSummaryByUserId(
+    req.user.id,
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      summary,
+    },
+  });
+  return next(new AppError('Performance scores must be between 1 and 5', 400));
 });

@@ -12,6 +12,9 @@ router
   .get(faultController.getAllFaults)
   .post(faultController.createFault);
 
+// Add this before the /:id route
+router.route('/my-reports').get(faultController.getMyFaults);
+
 router
   .route('/:id')
   .get(faultController.getFault)

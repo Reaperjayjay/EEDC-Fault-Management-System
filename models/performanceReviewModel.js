@@ -7,6 +7,7 @@ class PerformanceReview {
       CREATE TABLE IF NOT EXISTS performance_reviews (
         id INT AUTO_INCREMENT PRIMARY KEY,
 
+
         assignment_id INT NOT NULL,
         engineer_id INT NOT NULL,
         reviewed_by INT NOT NULL,
@@ -355,6 +356,69 @@ class PerformanceReview {
     );
 
     return rows;
+  }
+
+  // GET REVIEWS FOR THE LOGGED-IN ENGINEER
+  static async findByEngineerUserId(userId) {
+    const [rows] = await db.query(
+      `
+      SELECT
+        pr.id,
+        pr.assignment_id,
+        pr.engineer_id,
+        engineer_user.name AS engineer_name,
+        pr.reviewed_by,
+        reviewer.name AS reviewer_name,
+        pr.response_time_minutes,
+        pr.work_duration_minutes,
+        pr.resolution_quality,
+        pr.response_time_score,
+        pr.completion_time_score,
+        pr.diagnosis,
+        pr.safety_compliance,
+        pr.overall_score,
+        pr.comments,
+        pr.created_at
+      FROM performance_reviews pr
+      JOIN engineers e
+        ON pr.engineer_id = e.id
+      JOIN users engineer_user
+        ON e.user_id = engineer_user.id
+      JOIN users reviewer
+        ON pr.reviewed_by = reviewer.id
+      WHERE e.user_id = ?
+      ORDER BY pr.created_at DESC
+      `,
+      [userId],
+    );
+
+    return rows;
+  }
+
+  // GET ENGINEER'S OVERALL PERFORMANCE SUMMARY
+  static async getPerformanceSummaryByUserId(userId) {
+    const [rows] = await db.query(
+      `
+    SELECT
+      e.id AS engineer_id,
+      u.name AS engineer_name,
+      COUNT(pr.id) AS total_reviews,
+      COALESCE(AVG(pr.overall_score), 0) AS average_score,
+      COALESCE(MAX(pr.overall_score), 0) AS highest_score,
+      COALESCE(MIN(pr.overall_score), 0) AS lowest_score,
+      e.completed_jobs
+    FROM engineers e
+    JOIN users u
+      ON e.user_id = u.id
+    LEFT JOIN performance_reviews pr
+      ON pr.engineer_id = e.id
+    WHERE e.user_id = ?
+    GROUP BY e.id, u.id, u.name, e.completed_jobs
+    `,
+      [userId],
+    );
+
+    return rows[0];
   }
 }
 

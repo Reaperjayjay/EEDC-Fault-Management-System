@@ -7,6 +7,13 @@ const Fault = require('./models/faultsModel');
 const Assignment = require('./models/assignmentsModel');
 const performanceReview = require('./models/performanceReviewModel');
 const AssignmentUpdate = require('./models/assignmentUpdatesModel');
+const CustomerNotification = require('./models/customerNotificationsModel');
+const AssignmentCheckin = require('./models/assignmentCheckinModel');
+const EngineerLocation = require('./models/engineerLocationModel');
+
+const OutageAnnouncement = require('./models/outageAnnouncementsModel');
+
+const SupportRequest = require('./models/supportRequestsModel');
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION ⚡ SHUTTING DOWN');
@@ -75,6 +82,51 @@ AssignmentUpdate.createTable()
   })
   .catch((err) => {
     console.error('FAILED TO CREATE Engineer TABLE ❌');
+    console.error(err.message);
+  });
+
+CustomerNotification.createTable()
+  .then(() => {
+    console.log('CUSTOMER NOTIFICATIONS TABLE READY');
+  })
+  .catch((err) => {
+    console.error('FAILED TO CREATE CUSTOMER NOTIFICATIONS TABLE');
+    console.error(err.message);
+  });
+
+OutageAnnouncement.createTable()
+  .then(() => {
+    console.log('OUTAGE ANNOUNCEMENTS TABLE READY');
+  })
+  .catch((err) => {
+    console.error('FAILED TO CREATE OUTAGE ANNOUNCEMENTS TABLE');
+    console.error(err.message);
+  });
+
+SupportRequest.createTable()
+  .then(() => {
+    console.log('SUPPORT REQUESTS TABLE READY');
+  })
+  .catch((err) => {
+    console.error('FAILED TO CREATE SUPPORT REQUESTS TABLE');
+    console.error(err.message);
+  });
+
+AssignmentCheckin.createTable()
+  .then(() => {
+    console.log('ASSIGNMENT CHECKINS TABLE READY');
+  })
+  .catch((err) => {
+    console.error('FAILED TO CREATE ASSIGNMENT CHECKINS TABLE');
+    console.error(err.message);
+  });
+
+EngineerLocation.createTable()
+  .then(() => {
+    console.log('ENGINEER LOCATIONS TABLE READY');
+  })
+  .catch((err) => {
+    console.error('FAILED TO CREATE ENGINEER LOCATIONS TABLE');
     console.error(err.message);
   });
 
